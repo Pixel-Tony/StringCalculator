@@ -12,7 +12,7 @@ public class StringCalculator {
         String[] matches;
         if (numbers.startsWith("//")) {
             var mainMatcher = Pattern.compile("^//([^\\[\\]\\d]*?|(?:\\[[^\\[\\]\\d]+]){2,})\\n(.*)$", Pattern.DOTALL).matcher(numbers);
-            if (!mainMatcher.find())
+            if (!mainMatcher.matches())
                 throw new IllegalArgumentException("Input string doesn't match the general pattern");
 
             String delimitersLine = mainMatcher.group(1), numbersLine = mainMatcher.group(2);
